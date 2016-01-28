@@ -1,0 +1,20 @@
+group 'stk'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+
+mainClassName = 'PythagoraJavach'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.processing:core:2.2.1'
+    compile files('libs/Arduino.jar')
+    compile files('libs/serial.jar')
+    compile files('libs/jssc.jar')
+}
