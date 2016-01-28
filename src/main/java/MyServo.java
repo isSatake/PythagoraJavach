@@ -13,24 +13,23 @@ public class MyServo {
         pin = arduinoPin;
         angle = startAngle;
 
+        a.pinMode(arduinoPin, Arduino.SERVO);
         arduino.servoWrite(pin, angle);
     }
 
     public void increase(){
-        if(angle > 180){
+        if(angle >= 180){
             return;
         }
         arduino.servoWrite(pin, angle++);
+        System.out.println("servo pin : " + pin + " angle : " + angle);
     }
 
     public void decrease(){
-        if(angle < 0){
+        if(angle <= 0){
             return;
         }
         arduino.servoWrite(pin, angle--);
-    }
-
-    public int getPinNum(){
-        return pin;
+        System.out.println("servo pin : " + pin + " angle : " + angle);
     }
 }

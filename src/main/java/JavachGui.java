@@ -51,10 +51,10 @@ public class JavachGui implements MouseListener {
         aController[0].addMouseListener(this);
         aController[0].setActionCommand("1_left");
         aController[1].addMouseListener(this);
-        aController[1].setActionCommand("1_stop");
+        aController[1].setActionCommand("1_right");
         vController[0].addMouseListener(this);
         vController[0].setActionCommand("2_left");
-        jController[1].addMouseListener(this);
+        vController[1].addMouseListener(this);
         vController[1].setActionCommand("2_right");
         aaController[0].addMouseListener(this);
         aaController[0].setActionCommand("3_left");
@@ -83,9 +83,10 @@ public class JavachGui implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        System.out.println("pressed");
         String command = ((JButton) e.getSource()).getActionCommand();
         String commands[] = command.split("_");
-        System.out.println(commands[0]);
+        System.out.println(command);
         if (commands[1].equals("left")) {
             increase = new ThreadIncrease();
             increase.start(servos[Integer.parseInt(commands[0])]);
@@ -100,6 +101,7 @@ public class JavachGui implements MouseListener {
         System.out.println("released");
         String command = ((JButton) e.getSource()).getActionCommand();
         String commands[] = command.split("_");
+        System.out.println(command);
         if (commands[1].equals("left")) {
             increase.stopRunning();
         } else if (commands[1].equals("right")) {

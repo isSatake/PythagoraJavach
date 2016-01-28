@@ -9,12 +9,12 @@ public class ThreadIncrease extends Thread{
         running = true;
         servo = s;
         super.start();
-        System.out.println("increase is running");
     }
 
     @Override
     public void run(){
         while(running){
+            System.out.println("increase running");
             servo.increase();
             try {
                 Thread.sleep(10);

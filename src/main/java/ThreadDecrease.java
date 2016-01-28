@@ -9,12 +9,12 @@ public class ThreadDecrease extends Thread{
         running = true;
         servo = s;
         super.start();
-        System.out.println("decrease is running");
     }
 
     @Override
     public void run(){
         while(running){
+            System.out.println("decrease running");
             servo.decrease();
             try {
                 Thread.sleep(10);
